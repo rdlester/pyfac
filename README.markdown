@@ -1,4 +1,4 @@
-Python implementation of Sum-product (aka Belief-Propagation) for Factor Graphs.
+Python implementation of Sum-product (aka Belief-Propagation) for discrete Factor Graphs.
 
 See [this paper](http://www.comm.utoronto.ca/frank/papers/KFL01.pdf) for more details on the Factor Graph framework and the sum-product algorithm.
 
