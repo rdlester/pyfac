@@ -121,8 +121,8 @@ class Graph:
         return marginals
     
     def bruteForce(self):
-        """ Brute force method
-            HW problem 1.b
+        """ Brute force method. Only here for completeness.
+            Don't use unless you want your code to take forever to produce results.
             Note: index corresponding to var determined by order added
             Problem: max number of dims in numpy is 32???
             Limit to enabled vars as work-around
