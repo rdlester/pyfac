@@ -2,7 +2,7 @@ Python implementation of Sum-product (aka Belief-Propagation) for discrete Facto
 
 See [this paper](http://www.comm.utoronto.ca/frank/papers/KFL01.pdf) for more details on the Factor Graph framework and the sum-product algorithm. This code was originally written as part of a grad student seminar taught by Erik Sudderth at Brown University; the [seminar web page](http://cs.brown.edu/courses/csci2420/) is an excellent resource for learning more about graphical models.
 
-Requires NumPy.
+Requires NumPy and future.
 
 To use:
 
