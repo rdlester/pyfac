@@ -12,13 +12,13 @@ To use:
     G = Graph()
     
     # add variable nodes
-    a = G.addVarNode('a',2)
-    b = G.addVarNode('b',3)
+    a = G.addVarNode('a',3)
+    b = G.addVarNode('b',2)
     
     # add factors
     # unary factor
-    Pa = np.array([[0.3],[0.7]])
-    G.addFacNode(Pa, a)
+    Pb = np.array([[0.3],[0.7]])
+    G.addFacNode(Pa, b)
     
     # connecting factor
     Pab = np.array([[0.2, 0.8], [0.4, 0.6], [0.1, 0.9]])

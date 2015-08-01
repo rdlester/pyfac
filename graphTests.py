@@ -17,14 +17,14 @@ def makeToyGraph():
     """
     G = Graph()
 
-    a = G.addVarNode('a', 2)
-    b = G.addVarNode('b', 3)
+    a = G.addVarNode('a', 3)
+    b = G.addVarNode('b', 2)
 
-    p = np.array([[0.3], [0.7]])
-    G.addFacNode(p, a)
+    Pb = np.array([[0.3], [0.7]])
+    G.addFacNode(Pb, b)
 
-    p = np.array([[0.2, 0.8], [0.4, 0.6], [0.1, 0.9]])
-    G.addFacNode(p, b, a)
+    Pab = np.array([[0.2, 0.8], [0.4, 0.6], [0.1, 0.9]])
+    G.addFacNode(Pab, a, b)
 
     return G
 
@@ -40,34 +40,35 @@ def testToyGraph():
     # want to verify incoming messages
     # if vars are correct then factors must be as well
     a = G.var['a'].incoming
-    assert checkEq(a[0][0], 0.3)
-    assert checkEq(a[0][1], 0.7)
-    assert checkEq(a[1][0], 0.23333333)
-    assert checkEq(a[1][1], 0.76666667)
+    assert checkEq(a[0][0], 0.34065934)
+    assert checkEq(a[0][1], 0.2967033)
+    assert checkEq(a[0][2], 0.36263736)
 
     b = G.var['b'].incoming
-    assert checkEq(b[0][0], 0.34065934)
-    assert checkEq(b[0][1], 0.2967033)
-    assert checkEq(b[0][2], 0.36263736)
+    assert checkEq(b[0][0], 0.3)
+    assert checkEq(b[0][1], 0.7)
+    assert checkEq(b[1][0], 0.23333333)
+    assert checkEq(b[1][1], 0.76666667)
+
 
     # check the marginals
     am = marg['a']
-    assert checkEq(am[0], 0.11538462)
-    assert checkEq(am[1], 0.88461538)
+    assert checkEq(am[0], 0.34065934)
+    assert checkEq(am[1], 0.2967033)
+    assert checkEq(am[2], 0.36263736)
 
     bm = marg['b']
-    assert checkEq(bm[0], 0.34065934)
-    assert checkEq(bm[1], 0.2967033)
-    assert checkEq(bm[2], 0.36263736)
+    assert checkEq(bm[0], 0.11538462)
+    assert checkEq(bm[1], 0.88461538)
 
     # check brute force against sum-product
     amm = G.marginalizeBrute(brute, 'a')
     bmm = G.marginalizeBrute(brute, 'b')
     assert checkEq(am[0], amm[0])
     assert checkEq(am[1], amm[1])
+    assert checkEq(am[2], amm[2])
     assert checkEq(bm[0], bmm[0])
     assert checkEq(bm[1], bmm[1])
-    assert checkEq(bm[2], bmm[2])
 
     print("All tests passed!")
 
