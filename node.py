@@ -1,7 +1,6 @@
 from builtins import range
 from functools import reduce
 import numpy as np
-import pdb
 
 """ Factor Graph classes forming structure for PGMs
     Basic structure is port of MATLAB code by J. Pacheco
