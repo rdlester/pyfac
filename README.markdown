@@ -6,7 +6,7 @@ Requires NumPy and future.
 
 To use:
 
-    from Graph import Graph
+    from graph import Graph
     import numpy as np
     
     G = Graph()
@@ -18,7 +18,7 @@ To use:
     # add factors
     # unary factor
     Pb = np.array([[0.3],[0.7]])
-    G.addFacNode(Pa, b)
+    G.addFacNode(Pb, b)
     
     # connecting factor
     Pab = np.array([[0.2, 0.8], [0.4, 0.6], [0.1, 0.9]])
